@@ -1,4 +1,4 @@
-package com.github.dolphinai.tutorials.bootsamples.domain;
+package com.github.dolphinai.tutorials.bootsamples.simple.model;
 
 import io.swagger.annotations.ApiModel;
 import lombok.Data;

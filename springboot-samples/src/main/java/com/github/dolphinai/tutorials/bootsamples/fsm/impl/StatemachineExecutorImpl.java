@@ -1,10 +1,8 @@
-package com.github.dolphinai.tutorials.bootsamples.statemachine.fsm;
+package com.github.dolphinai.tutorials.bootsamples.fsm.impl;
 
 import com.github.dolphinai.tutorials.bootsamples.common.ResultMap;
-import com.github.dolphinai.tutorials.bootsamples.statemachine.ProcessContext;
-import com.github.dolphinai.tutorials.bootsamples.statemachine.StatemachineExecutor;
-import com.google.common.collect.Streams;
-import com.google.common.io.Files;
+import com.github.dolphinai.tutorials.bootsamples.fsm.ProcessContext;
+import com.github.dolphinai.tutorials.bootsamples.fsm.StatemachineExecutor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.DisposableBean;
 import org.springframework.beans.factory.InitializingBean;
@@ -15,7 +13,6 @@ import org.squirrelframework.foundation.fsm.UntypedStateMachineBuilder;
 import org.squirrelframework.foundation.fsm.UntypedStateMachineImporter;
 
 import java.io.InputStream;
-import java.nio.file.Paths;
 import java.util.Objects;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;

@@ -1,4 +1,4 @@
-package com.github.dolphinai.tutorials.bootsamples.statemachine;
+package com.github.dolphinai.tutorials.bootsamples.fsm;
 
 import lombok.Data;
 

@@ -1,9 +1,8 @@
-package com.github.dolphinai.tutorials.bootsamples.application.controller;
+package com.github.dolphinai.tutorials.bootsamples.fsm.controller;
 
 import com.github.dolphinai.tutorials.bootsamples.common.ResultMap;
-import com.github.dolphinai.tutorials.bootsamples.domain.User;
 import com.github.dolphinai.tutorials.bootsamples.event.LogEvent;
-import com.github.dolphinai.tutorials.bootsamples.statemachine.StatemachineExecutor;
+import com.github.dolphinai.tutorials.bootsamples.fsm.StatemachineExecutor;
 import com.google.common.eventbus.EventBus;
 import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;

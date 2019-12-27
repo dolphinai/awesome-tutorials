@@ -1,6 +1,6 @@
-package com.github.dolphinai.tutorials.bootsamples.statemachine.fsm;
+package com.github.dolphinai.tutorials.bootsamples.fsm.impl;
 
-import com.github.dolphinai.tutorials.bootsamples.statemachine.ProcessContext;
+import com.github.dolphinai.tutorials.bootsamples.fsm.ProcessContext;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;

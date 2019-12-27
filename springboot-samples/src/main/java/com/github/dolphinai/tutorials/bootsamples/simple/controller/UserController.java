@@ -1,7 +1,7 @@
-package com.github.dolphinai.tutorials.bootsamples.application.controller;
+package com.github.dolphinai.tutorials.bootsamples.simple.controller;
 
 import com.github.dolphinai.tutorials.bootsamples.common.ResultMap;
-import com.github.dolphinai.tutorials.bootsamples.domain.User;
+import com.github.dolphinai.tutorials.bootsamples.simple.model.User;
 import com.github.dolphinai.tutorials.bootsamples.event.LogEvent;
 import com.google.common.eventbus.EventBus;
 import io.swagger.annotations.Api;

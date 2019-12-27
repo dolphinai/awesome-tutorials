@@ -1,7 +1,5 @@
-package com.github.dolphinai.tutorials.bootsamples.statemachine.fsm;
+package com.github.dolphinai.tutorials.bootsamples.fsm.impl;
 
-import org.squirrelframework.foundation.component.SquirrelProvider;
-import org.squirrelframework.foundation.fsm.SCXMLVisitor;
 import org.squirrelframework.foundation.fsm.StateMachineBuilderFactory;
 import org.squirrelframework.foundation.fsm.UntypedStateMachine;
 import org.squirrelframework.foundation.fsm.UntypedStateMachineBuilder;

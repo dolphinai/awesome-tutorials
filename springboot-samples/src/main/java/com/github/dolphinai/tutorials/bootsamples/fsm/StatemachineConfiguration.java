@@ -1,6 +1,6 @@
-package com.github.dolphinai.tutorials.bootsamples.statemachine;
+package com.github.dolphinai.tutorials.bootsamples.fsm;
 
-import com.github.dolphinai.tutorials.bootsamples.statemachine.fsm.StatemachineExecutorImpl;
+import com.github.dolphinai.tutorials.bootsamples.fsm.impl.StatemachineExecutorImpl;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
