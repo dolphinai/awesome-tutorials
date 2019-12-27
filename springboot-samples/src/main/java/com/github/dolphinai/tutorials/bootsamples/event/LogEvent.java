@@ -1,22 +1,27 @@
 package com.github.dolphinai.tutorials.bootsamples.event;
 
 import lombok.Getter;
+import lombok.ToString;
+import lombok.Value;
 import lombok.extern.slf4j.Slf4j;
 
 import java.io.Serializable;
 
-@Slf4j
+@ToString
 public final class LogEvent implements Serializable {
 
 	@Getter
-	private final String message;
+	private String message;
+	@Getter
+	private String module;
 
-	protected LogEvent(String message) {
-		this.message = message;
-		log.info("Publish event: {}", message);
+	private LogEvent() {
 	}
 
-	public static LogEvent of(String message) {
-		return new LogEvent(message);
+	public static LogEvent of(String module, String message) {
+		LogEvent event = new LogEvent();
+		event.module = module;
+		event.message = message;
+		return event;
 	}
 }

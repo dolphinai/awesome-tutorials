@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/user")
 public class UserController {
 
+	private static final String MODULE = "USER";
+
 	@Autowired
 	@Qualifier("logEventBus")
 	private EventBus logEventBus;
@@ -22,25 +24,25 @@ public class UserController {
 	@ApiOperation(value = "Retrieve the user via the id")
 	@GetMapping("/find/{id}")
 	public User findById(@PathVariable("id") String id) {
-		logEventBus.post(LogEvent.of("Retrieved a user: " + id));
+		logEventBus.post(LogEvent.of(MODULE,"Retrieved a user: " + id));
 		return User.of(id);
 	}
 
 	@DeleteMapping("/delete/{id}")
 	public ResultMap deleteById(@PathVariable("id") String id) {
-		logEventBus.post(LogEvent.of("Removed a user: " + id));
+		logEventBus.post(LogEvent.of(MODULE,"Removed a user: " + id));
 		return ResultMap.fail("AD01");
 	}
 
 	@PutMapping("/update")
 	public ResultMap update(@RequestBody User user) {
-		logEventBus.post(LogEvent.of("Updated a user: " + user.getId()));
+		logEventBus.post(LogEvent.of(MODULE,"Updated a user: " + user.getId()));
 		return ResultMap.success();
 	}
 
 	@PostMapping("/create")
 	public ResultMap create(@RequestBody User user) {
-		logEventBus.post(LogEvent.of("Created a user: " + user.getId()));
+		logEventBus.post(LogEvent.of(MODULE,"Created a user: " + user.getId()));
 		return ResultMap.success();
 	}
 }
