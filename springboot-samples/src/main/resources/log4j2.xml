@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="OFF" monitorInterval="30">
+	<Appenders>
+		<Console name="ConsoleAppender" target="SYSTEM_OUT">
+			<PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss,SSS} %-5level %5pid --- [%10t] %-38.38c{1.} : %m%n"/>
+		</Console>
+	</Appenders>
+	<Loggers>
+		<logger name="org.springframework.cloud.openfeign" level="DEBUG"></logger>
+		<Root level="INFO">
+			<AppenderRef ref="ConsoleAppender"/>
+		</Root>
+	</Loggers>
+</Configuration>
