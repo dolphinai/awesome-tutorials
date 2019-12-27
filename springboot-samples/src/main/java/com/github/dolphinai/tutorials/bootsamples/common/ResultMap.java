@@ -1,5 +1,6 @@
 package com.github.dolphinai.tutorials.bootsamples.common;
 
+import java.beans.Transient;
 import java.util.HashMap;
 import java.util.Objects;
 
@@ -17,6 +18,11 @@ public final class ResultMap extends HashMap<String, Object> {
 
 	public <T> ResultMap body(T body) {
 		return with("body", body);
+	}
+
+	@Transient
+	public boolean isSucceed() {
+		return "000".equals(get("code"));
 	}
 
 	public <T> ResultMap with(String name, T value) {

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scxml initial="A" version="1.0" xmlns="http://www.w3.org/2005/07/scxml" xmlns:sqrl="http://squirrelframework.org/squirrel">
+    <sqrl:fsm context-insensitive="true"
+        context-type="com.github.dolphinai.tutorials.bootsamples.statemachine.ProcessContext"
+        event-type="java.lang.String"
+        fsm-type="com.github.dolphinai.tutorials.bootsamples.statemachine.fsm.ProcessFSM"
+        id="" state-type="java.lang.String"/>
+    <state id="Start">
+        <transition
+            cond="instance#org.squirrelframework.foundation.fsm.Conditions$Always"
+            event="approved" sqrl:priority="1" sqrl:type="EXTERNAL" target="Task1">
+            <sqrl:action content="method#onTransition:0"/>
+        </transition>
+    </state>
+    <state id="Task1">
+		<transition
+			cond="instance#org.squirrelframework.foundation.fsm.Conditions$Always"
+			event="approved" sqrl:priority="1" sqrl:type="EXTERNAL" target="Task2">
+			<sqrl:action content="method#onTransition:0"/>
+		</transition>
+	</state>
+    <state id="Task2">
+		<transition
+			cond="instance#org.squirrelframework.foundation.fsm.Conditions$Always"
+			event="approved" sqrl:priority="1" sqrl:type="EXTERNAL" target="Finish">
+			<sqrl:action content="method#onTransition:0"/>
+		</transition>
+	</state>
+    <state id="Finish">
+        <onentry>
+            <sqrl:action content="method#onFinished:0"/>
+        </onentry>
+    </state>
+</scxml>
