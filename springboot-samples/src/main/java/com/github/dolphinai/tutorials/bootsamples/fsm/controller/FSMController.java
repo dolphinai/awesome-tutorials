@@ -1,7 +1,7 @@
 package com.github.dolphinai.tutorials.bootsamples.fsm.controller;
 
 import com.github.dolphinai.tutorials.bootsamples.common.ResultMap;
-import com.github.dolphinai.tutorials.bootsamples.event.LogEvent;
+import com.github.dolphinai.tutorials.bootsamples.event.AuditingEvent;
 import com.github.dolphinai.tutorials.bootsamples.fsm.StatemachineExecutor;
 import com.google.common.eventbus.EventBus;
 import io.swagger.annotations.Api;
@@ -26,7 +26,7 @@ public class FSMController {
 	@PostMapping("/start/{id}")
 	public ResultMap start(@PathVariable("id") String id) {
 		ResultMap resultMap = statemachineExecutor.start(id, "admin");
-		logEventBus.post(LogEvent.of(MODULE,"Start a FSM: " + id));
+		logEventBus.post(AuditingEvent.of(MODULE,"Start a FSM: " + id));
 		return resultMap;
 	}
 

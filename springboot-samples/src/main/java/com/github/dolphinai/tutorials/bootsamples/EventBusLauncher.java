@@ -1,6 +1,6 @@
 package com.github.dolphinai.tutorials.bootsamples;
 
-import com.github.dolphinai.tutorials.bootsamples.event.LogEventListener;
+import com.github.dolphinai.tutorials.bootsamples.event.AuditingEventListener;
 import com.google.common.eventbus.EventBus;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.CommandLineRunner;
@@ -17,12 +17,12 @@ public class EventBusLauncher implements CommandLineRunner {
 	}
 
 	@Bean
-	public LogEventListener logEventListener() {
-		return new LogEventListener();
+	public AuditingEventListener logEventListener() {
+		return new AuditingEventListener();
 	}
 
 	@Bean(name = "logEventBus")
-	public EventBus logEventBus(LogEventListener logEventListener) {
+	public EventBus logEventBus(AuditingEventListener logEventListener) {
 		EventBus eventBus = new EventBus("logBus");
 		eventBus.register(logEventListener);
 		return eventBus;

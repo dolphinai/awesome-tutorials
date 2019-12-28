@@ -5,13 +5,13 @@ import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j(topic = "Auditing")
-public final class LogEventListener {
+public final class AuditingEventListener {
 
 	@Getter
-	private LogEvent event;
+	private AuditingEvent event;
 
 	@Subscribe
-	public void listen(LogEvent event) {
+	public void listen(AuditingEvent event) {
 		event = event;
 		log.info("Received message: {}", event);
 	}
