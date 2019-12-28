@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: hello-service
+eureka:
+  client:
+    service-url:
+      default-zone: http://peer1.easysvc.com:1111/eureka/, http://peer2.easysvc.com:1112/eureka

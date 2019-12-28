@@ -20,6 +20,7 @@
 		<maven.compiler.target>1.8</maven.compiler.target>
 		<java.version>1.8</java.version>
 		<wiremock-version>2.25.1</wiremock-version>
+		<apache.lucene.version>8.3.1</apache.lucene.version>
     </properties>
 
     <dependencies>
@@ -79,6 +80,18 @@
 				</exclusion>
 			</exclusions>
 		</dependency>
+
+		<dependency>
+			<groupId>org.apache.lucene</groupId>
+			<artifactId>lucene-core</artifactId>
+			<version>${apache.lucene.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.lucene</groupId>
+			<artifactId>lucene-queryparser</artifactId>
+			<version>${apache.lucene.version}</version>
+		</dependency>
+
 
 		<dependency>
 			<groupId>com.github.tomakehurst</groupId>

@@ -1,0 +1,10 @@
+server:
+  port: 1112
+---
+eureka:
+  instance:
+    hostname: peer2.easysvc.com
+  client:
+    service-url:
+      default-zone: http://peer2.easysvc.com:1112/eureka/
+
