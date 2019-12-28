@@ -13,6 +13,6 @@ public final class AuditingEventListener {
 	@Subscribe
 	public void listen(AuditingEvent event) {
 		event = event;
-		log.info("Received message: {}", event);
+		log.info("op={}, path={}, client-ip={}, {}", event.getOperation(), event.getPath(), event.getClientAddress(), event.getMessage());
 	}
 }

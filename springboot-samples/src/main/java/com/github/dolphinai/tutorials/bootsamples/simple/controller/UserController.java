@@ -1,6 +1,7 @@
 package com.github.dolphinai.tutorials.bootsamples.simple.controller;
 
 import com.github.dolphinai.tutorials.bootsamples.common.ResultMap;
+import com.github.dolphinai.tutorials.bootsamples.event.AuditingLevel;
 import com.github.dolphinai.tutorials.bootsamples.simple.model.User;
 import com.github.dolphinai.tutorials.bootsamples.event.AuditingEvent;
 import com.google.common.eventbus.EventBus;
@@ -9,6 +10,9 @@ import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.*;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 @Api(description = "User management API")
 @RestController
@@ -23,26 +27,26 @@ public class UserController {
 
 	@ApiOperation(value = "Retrieve the user via the id")
 	@GetMapping("/find/{id}")
-	public User findById(@PathVariable("id") String id) {
-		logEventBus.post(AuditingEvent.of(MODULE,"Retrieved a user: " + id));
+	public User findById(@PathVariable("id") String id, HttpServletRequest request, HttpServletResponse response) {
+		logEventBus.post(AuditingEvent.of(AuditingLevel.REQUESTRESPONSE, request, response));
 		return User.of(id);
 	}
 
 	@DeleteMapping("/delete/{id}")
-	public ResultMap deleteById(@PathVariable("id") String id) {
-		logEventBus.post(AuditingEvent.of(MODULE,"Removed a user: " + id));
+	public ResultMap deleteById(@PathVariable("id") String id, HttpServletRequest request, HttpServletResponse response) {
+		logEventBus.post(AuditingEvent.of(AuditingLevel.REQUESTRESPONSE, request, response));
 		return ResultMap.fail("AD01");
 	}
 
 	@PutMapping("/update")
-	public ResultMap update(@RequestBody User user) {
-		logEventBus.post(AuditingEvent.of(MODULE,"Updated a user: " + user.getId()));
+	public ResultMap update(@RequestBody User user, HttpServletRequest request, HttpServletResponse response) {
+		logEventBus.post(AuditingEvent.of(AuditingLevel.REQUESTRESPONSE, request, response));
 		return ResultMap.success();
 	}
 
 	@PostMapping("/create")
-	public ResultMap create(@RequestBody User user) {
-		logEventBus.post(AuditingEvent.of(MODULE,"Created a user: " + user.getId()));
+	public ResultMap create(@RequestBody User user, HttpServletRequest request, HttpServletResponse response) {
+		logEventBus.post(AuditingEvent.of(AuditingLevel.REQUESTRESPONSE, request, response));
 		return ResultMap.success();
 	}
 }

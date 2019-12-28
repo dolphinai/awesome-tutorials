@@ -1,14 +1,14 @@
 package com.github.dolphinai.tutorials.bootsamples.event;
 
-import lombok.Data;
-import lombok.Getter;
-import lombok.With;
+import lombok.*;
 import org.apache.log4j.lf5.LogLevel;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.Serializable;
 
+@NoArgsConstructor
+@AllArgsConstructor
 public final class AuditingEvent implements Serializable {
 
 	public enum Level {
@@ -30,9 +30,6 @@ public final class AuditingEvent implements Serializable {
 	@With
 	private String message;
 
-	private AuditingEvent() {
-	}
-
 	public static AuditingEvent of(AuditingLevel level, HttpServletRequest request, HttpServletResponse response) {
 		AuditingEvent result = new AuditingEvent();
 		result.path = request.getRequestURI();
@@ -45,7 +42,8 @@ public final class AuditingEvent implements Serializable {
 		} else if ("PUT".equalsIgnoreCase(method)) {
 			result.operation = "Create";
 		}
-		result.clientAddress = request.getLocalAddr();
+
+		result.clientAddress = request.getRemoteUser();
 
 		if (Level.NONE.equals(level)) {
 			return result;
@@ -53,13 +51,15 @@ public final class AuditingEvent implements Serializable {
 		StringBuilder builder = new StringBuilder();
 		// metadata
 		if (level.getValue() >= AuditingLevel.METADATA.getValue()) {
-			builder.append("\n");
+
+			builder.append("Principal=").append(request.getUserPrincipal());
+
 		}
 
 		// request
 		if (level.getValue() >= AuditingLevel.REQUEST.getValue()) {
 
-			builder.append("\n[Request] ");
+			builder.append("\n[Request] ").append("User-Agent=").append(request.getHeader("user-agent"));
 		}
 
 		// response
