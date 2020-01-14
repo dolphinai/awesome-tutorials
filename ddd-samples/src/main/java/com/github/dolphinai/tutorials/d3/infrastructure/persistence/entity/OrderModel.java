@@ -5,7 +5,6 @@ import java.io.Serializable;
 
 public interface OrderModel extends Serializable {
 
-	@NotBlank
 	String getId();
 
 	@NotBlank

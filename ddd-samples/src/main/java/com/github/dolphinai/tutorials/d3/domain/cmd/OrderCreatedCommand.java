@@ -1,6 +1,7 @@
 package com.github.dolphinai.tutorials.d3.domain.cmd;
 
 import com.github.dolphinai.tutorials.d3.infrastructure.api.OrderCreatedEvent;
+import lombok.Setter;
 import lombok.Value;
 import org.axonframework.modelling.command.TargetAggregateIdentifier;
 

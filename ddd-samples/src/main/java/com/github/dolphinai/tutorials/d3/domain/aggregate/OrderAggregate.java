@@ -33,8 +33,9 @@ public final class OrderAggregate implements OrderModel {
 	}
 
 	@CommandHandler
-	private void handle(OrderCreatedCommand cmd, MetaData metaData) {
+	public OrderAggregate(OrderCreatedCommand cmd, MetaData metaData){
 		log.info("{}", cmd);
+		this.id = cmd.getId();
 		AggregateLifecycle.apply((OrderCreatedEvent)cmd, metaData);
 	}
 

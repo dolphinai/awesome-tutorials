@@ -5,13 +5,13 @@ import org.axonframework.config.EventProcessingConfigurer;
 import org.axonframework.eventhandling.EventBus;
 import org.axonframework.eventhandling.TrackingEventProcessorConfiguration;
 import org.axonframework.messaging.interceptors.BeanValidationInterceptor;
+import org.axonframework.spring.config.AxonConfiguration;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-public class AxonConfiguration {
+public class AxonConfigurer {
 
 	@Autowired
 	private AxonConfiguration axonConfiguration;

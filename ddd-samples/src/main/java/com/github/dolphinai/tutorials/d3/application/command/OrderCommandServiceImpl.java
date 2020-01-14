@@ -28,7 +28,6 @@ public class OrderCommandServiceImpl implements OrderCommandService {
 	public Mono<Void> execute(OrderCreatedCommand command) {
 		log.info("{}", command);
 		//return Mono.fromFuture(commandGateway.send(command));
-
 		commandGateway.sendAndWait(command);
 		return Mono.empty();
 	}
